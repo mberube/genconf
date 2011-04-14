@@ -11,3 +11,5 @@ dist/
 build/
 *.egg-info/
 distribute*.tar.gz
+
+*.swp
