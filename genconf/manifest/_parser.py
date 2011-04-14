@@ -56,10 +56,10 @@ class ManifestParser(object):
                 
         def do_create_profile(data):
             p = Profile(name = data['name'], 
-                           is_abstract = data['abstract'],
-                           extends = map(get_profile, data['extends']),
-                           properties = data['properties'],
-                           output_files = map(create_output_file(lambda: p), data['output_files']),
+                           is_abstract = data.get('abstract', False),
+                           extends = map(get_profile, data.get('extends', [])),
+                           properties = data.get('properties', {}),
+                           output_files = map(create_output_file(lambda: p), data.get('output_files', [])),
                            overrides = project_overrides.get(data['name'], {}))
             created_profiles[p.name] = p
             return p

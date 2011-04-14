@@ -18,6 +18,7 @@ profiles:
           "debug": "true"
       output_files:
           - {target: "target/${profile}/otherdir/sometext", template: "templates/sometext", template_format: "genshi-text"}
+
     - name: "development"
       abstract: false
       extends: ["all"]
@@ -29,3 +30,5 @@ profiles:
           - {target: "target/willnotexist", template: "templates/not-found-template", template_format: "genshi-text"}
           - {target: "target/io-error", template: "templates/sometext", template_format: "genshi-text"}
           - {target: "target/syntax-error", template: "templates/syntax-error", template_format: "genshi-text"}
+
+    - name: "empty-profile"
